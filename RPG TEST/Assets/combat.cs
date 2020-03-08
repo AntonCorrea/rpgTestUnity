@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class combat : MonoBehaviour
+public class Combat : MonoBehaviour
 {
     // Start is called before the first frame update
     
@@ -11,14 +11,18 @@ public class combat : MonoBehaviour
 
     public int attackNumber = 0;
     bool incrementDone=false;
-    
-    public AnimatorStateInfo animatorClip;
 
-    void Start()
+    public bool animationClipAttackStopped;
+
+    public bool animationHitBoxActive;
+
+    public GameObject hitBox;
+    public ParticleSystem SlashParticles;
+
+    private void Start()
     {
         
     }
-
     // Update is called once per frame
     void Update()
     {
@@ -56,11 +60,21 @@ public class combat : MonoBehaviour
 
         }
 
-        if (animatorClip.IsName("AttackStopped") )
+        if (animationClipAttackStopped)
         {
             attackNumber = 0;
         }
 
+        if (animationHitBoxActive)
+        {
+            hitBox.SetActive(true);
+            SlashParticles.Play();
+        }
+        else
+        {
+            hitBox.SetActive(false);
+            SlashParticles.Stop();
+        }
 
     }
 }

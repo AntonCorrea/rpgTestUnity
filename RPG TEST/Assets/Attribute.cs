@@ -2,11 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CameraPivot : MonoBehaviour
+public class Attribute : MonoBehaviour
 {
-    public GameObject target;
-
     // Start is called before the first frame update
+    public float health;
+    public float speedMov;
+    public float speedRot;
+    public float speedBoost;
+    public bool getHit;
+    public GameObject gotHitBy;
+    public bool hasBeenHit;
     void Start()
     {
         
@@ -15,6 +20,6 @@ public class CameraPivot : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position = target.transform.position;   
+        
     }
 }

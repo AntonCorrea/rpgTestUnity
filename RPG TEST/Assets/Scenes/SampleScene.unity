@@ -26139,8 +26139,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 0}
   movementVector: {x: 0, y: 0, z: 0}
-  followRadio: 0
-  attackRadio: 0
+  followRadio: 80
+  attackRadio: 30
   attacking: 0
   walking: 0
   attributes: {fileID: 0}

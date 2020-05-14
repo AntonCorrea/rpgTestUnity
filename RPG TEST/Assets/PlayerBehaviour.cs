@@ -95,26 +95,20 @@ public class PlayerBehaviour : MonoBehaviour
                 attackNumber = 0;
             }
 
-            
-
+           
         }
         if (animator.GetCurrentAnimatorStateInfo(1).IsName("AttackStopped"))
         {
             attackNumber = 0;
         }
 
-        if (animator.GetCurrentAnimatorStateInfo(1).IsName("Attack2"))
+        if (animator.GetCurrentAnimatorStateInfo(1).IsName("Attack1") ||
+            animator.GetCurrentAnimatorStateInfo(1).IsName("Attack2") ||
+            animator.GetCurrentAnimatorStateInfo(1).IsName("Attack3") )
         {
-            //rb.AddForce(transform.forward * 1000f,ForceMode.Acceleration);
-            //transform.position = Vector3.Lerp(transform.position, transform.position + transform.forward * 10f, .1f);
-            //transform.position = Vector3.Slerp(transform.position, transform.position + transform.forward * 1f, 1f);
-            //transform.Translate(Vector3.forward * 1f);
-            //transform.position = Vector3.MoveTowards(transform.position, transform.position + transform.forward * 10f, 1f);
-            //Vector3 velocity = Vector3.zero;
-            //36000,4,
-            //transform.position = Vector3.SmoothDamp(transform.position, transform.position + transform.forward * fwd, ref velocity, smT);
-            //transform.position = transform.position + transform.forward;
+            movementVector = Vector3.zero;
         }
+
         if (ActivateHitbox)
         {
             hitBox.SetActive(true);
@@ -160,11 +154,7 @@ public class PlayerBehaviour : MonoBehaviour
             bloodParticles.Stop();
             shieldParticles.Stop();
         }
-        if (animator.GetCurrentAnimatorStateInfo(0).IsName("getHit"))
-        {
 
-            
-        }   
         float maxMovement = Mathf.Max(Mathf.Abs(movementVector.x), Mathf.Abs(movementVector.z));
         animator.SetFloat("BlendMovement", maxMovement);
         animator.SetBool("Defend", isDeffending);
